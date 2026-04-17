@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #ff4d4d;
+  --color-brand-glow: rgba(255, 77, 77, 0.4);
+  --color-bg-dark: #0b0e14;
+  --color-card-dark: #161b22;
+  --font-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-white font-sans antialiased selection:bg-brand selection:text-white relative min-h-screen overflow-x-hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 70% 30%, #1a1e26 0%, #0b0e14 70%);
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  .glow-red {
+    box-shadow: 0 0 20px var(--color-brand-glow);
+  }
+  .glow-red-hover:hover {
+    box-shadow: 0 0 30px var(--color-brand-glow);
+  }
+  .text-glow {
+    text-shadow: 0 0 15px var(--color-brand-glow);
+  }
+  .glass-card {
+    background: var(--color-card-dark);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+}
